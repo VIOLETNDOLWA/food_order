@@ -4,6 +4,14 @@
     <div class="wrapper">
         <h1>Add Admin</h1>
         <br><br>
+
+        <?php
+        if(isset($_SESSION['add'])){ //check wheather the session is set or not
+            echo $_SESSION['add'];//displaying session message
+            unset($_SESSION['add']);//removing session message
+        }
+        ?>
+
         <form action="" method="POST">
             <table class="tbl-small">
                 <tr>
@@ -43,8 +51,37 @@
 //chek whether the submit button is clicked or not
 if(isset($_POST['submit'])){
     //button clicked
-}else{
-    //not clicked
+   // echo "button is clicked";
+    
+
+    //step1:get data from a form
+    $full_name = $_POST['full_name'];
+    $user_name = $_POST['user_name'];
+    $password = md5($_POST['password']);//password encryption with md5
+
+    //step2: sql query to save data into database
+    $sql = "INSERT INTO tbt_admin SET
+        full_name = '$full_name',
+        user_name = '$user_name',
+        password = '$password'
+    ";
+    //step3:executing query and saving data into database
+    $res = mysqli_query($conn, $sql);
+
+    //step4: check wheather the (query is executed) data is inserted or not and displayed appropriate message
+    if($res==TRUE){
+    //data inserted
+    //create a session variables to display message
+    $_SESSION['add'] = "Admin Added Successfully";
+    //redirect page to manage admin
+    header("location:".SITEURL.'admin/manage_admin.php');
+    }else{
+        //create a session variables to display message
+    $_SESSION['add'] = "Failed to Add Admin";
+    //redirect page to add admin
+    header("location:".SITEURL.'admin/add_admin.php');
+    }
+
 }
 
 ?>
