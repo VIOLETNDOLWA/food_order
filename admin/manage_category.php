@@ -22,8 +22,8 @@
                 <td>Violet</td>
                 <td>violet</td>
                 <td>
-                    <a href="btn-secondary"> Update Admin</a>
-                    <a href="btn-danger">  Delete Admin</a>
+                    <a href="" class="btn-secondary"> Update Admin</a>
+                    <a href="" class="btn-danger">  Delete Admin</a>
                     
                 </td>
             </tr>
@@ -33,8 +33,8 @@
                 <td>Violet</td>
                 <td>violet</td>
                 <td>
-                <a href="btn-secondary"> Update Admin</a>
-                    <a href="btn-danger">  Delete Admin</a>
+                <a href="" class="btn-secondary"> Update Admin</a>
+                    <a href="" class="btn-danger">  Delete Admin</a>
                 </td>
             </tr>
 
@@ -43,8 +43,8 @@
                 <td>Violet</td>
                 <td>violet</td>
                 <td>
-                <a href="btn-secondary"> Update Admin</a>
-                    <a href="btn-danger">  Delete Admin</a>
+                <a href="" class="btn-secondary"> Update Admin</a>
+                    <a href="" class="btn-danger">  Delete Admin</a>
                 </td>
             </tr>
         </table>

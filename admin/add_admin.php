@@ -7,7 +7,7 @@
 
         <?php
         if(isset($_SESSION['add'])){ //check wheather the session is set or not
-            echo $_SESSION['add'];//displaying session message
+            echo $_SESSION['add'];//displaying session message is set
             unset($_SESSION['add']);//removing session message
         }
         ?>
@@ -70,9 +70,9 @@ if(isset($_POST['submit'])){
 
     //step4: check wheather the (query is executed) data is inserted or not and displayed appropriate message
     if($res==TRUE){
-    //data inserted
+    
     //create a session variables to display message
-    $_SESSION['add'] = "Admin Added Successfully";
+    $_SESSION['add'] = "<div class='success'>Admin Added Successfully</div>";
     //redirect page to manage admin
     header("location:".SITEURL.'admin/manage_admin.php');
     }else{

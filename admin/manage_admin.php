@@ -10,6 +10,26 @@
             echo $_SESSION['add'];//displaying session message
             unset($_SESSION['add']);//removing session message
         }
+        if(isset($_SESSION['delete'])){
+            echo $_SESSION['delete'];
+            unset($_SESSION['delete']);
+        }
+        if(isset($_SESSION['update'])){
+            echo $_SESSION['update'];
+            unset($_SESSION['update']);
+        }
+        if(isset($_SESSION['user-not-found'])){
+            echo $_SESSION['user-not-found'];
+            unset($_SESSION['user-not-found']);
+        }
+        if(isset($_SESSION['password not match'])){
+            echo $_SESSION['password not match'];
+            unset($_SESSION['password not match']);
+        }
+        if(isset($_SESSION['change password'])){
+            echo $_SESSION['change password'];
+            unset($_SESSION['change password']);
+        }
         ?>
         <br><br><br>
 
@@ -34,12 +54,12 @@
             if($res==TRUE){
                 //count rows to check wheather we have data in database or not
                 $count = mysqli_num_rows($res); //function to get all the rows in a database
-                //$sn=1; //create a variable and assign the value
+                $sn=1; //create a variable and assign the value
                 
                 //check the number of rows
                 if($count>0){
                     //we have data in database
-                    while($rows=mysqli_fetch_assoc($res));{
+                    while($rows=mysqli_fetch_assoc($res)){
                     //using while loop to get all data from database
                     //while loop will run as long we have data in a database
 
@@ -52,12 +72,13 @@
                 ?>
 
             <tr>
-                <td><?php echo $id;?></td> 
+                <td><?php echo $sn++;?>.</td> 
                 <td><?php echo $full_name;?></td>
                 <td><?php echo $user_name;?></td>
                 <td>
-                    <a href="btn-secondary"> Update Admin</a>
-                    <a href="btn-danger">  Delete Admin</a>
+                    <a href="<?php echo SITEURL;?>admin/update_password.php? id=<?php echo $id?>" class="btn-primary">Change Password</a>
+                    <a href="<?php echo SITEURL;?>admin/update_admin.php? id=<?php echo $id?>" class="btn-secondary"> Update Admin</a>
+                    <a href="<?php echo SITEURL;?>admin/delete_admin.php? id=<?php echo $id?>" class="btn-danger">  Delete Admin</a>
                     
                 </td>
             </tr>
@@ -72,36 +93,7 @@
             }
             ?>
 
-            <tr>
-                <td>1. </td>
-                <td>Violet</td>
-                <td>vio</td>
-                <td>
-                    <a href="btn-secondary"> Update Admin</a>
-                    <a href="btn-danger">  Delete Admin</a>
-                    
-                </td>
-            </tr>
-
-            <tr>
-                <td>2. </td>
-                <td>Leila</td>
-                <td>Lei</td>
-                <td>
-                <a href="btn-secondary"> Update Admin</a>
-                    <a href="btn-danger">  Delete Admin</a>
-                </td>
-            </tr>
-
-            <tr>
-                <td>3. </td>
-                <td>Charles</td>
-                <td>Charl</td>
-                <td>
-                <a href="btn-secondary"> Update Admin</a>
-                    <a href="btn-danger">  Delete Admin</a>
-                </td>
-            </tr>
+            
         </table>
     
     </div>
