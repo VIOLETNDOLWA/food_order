@@ -1,4 +1,7 @@
-<?php include('../config/const.php'); ?>
+<?php 
+include('../config/const.php'); 
+include('partial/login_check.php');
+?>
 <html >
 <head>
     <meta charset="UTF-8">
@@ -17,6 +20,7 @@
                 <li><a href="manage_category.php">Category</a></li>
                 <li><a href="manage_food.php">Food</a></li>
                 <li><a href="manage_order.php">Order</a></li>
+                <li><a href="logout.php">Logout</a></li>
             </ul>
         </div>
     </div>

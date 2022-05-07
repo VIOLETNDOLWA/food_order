@@ -18,6 +18,10 @@
             echo $_SESSION['login'];
             unset($_SESSION['login']);
         }
+        if(isset($_SESSION['no-login-message'])){
+            echo $_SESSION['no-login-message'];
+            unset($_SESSION['no-login-message']);
+        }
         ?>
         <br><br>
         <!-- login form start -->
@@ -39,7 +43,7 @@ if(isset($_POST['submit'])){
     //process for login
     //1.Get the data from login form
     $user_name = $_POST['user_name'];
-    $password = $_POST['password'];
+    $password = md5($_POST['password']);
     //2. sql to check wheather the user with username and password exist or not
     $sql = "SELECT * FROM tbt_admin WHERE user_name='$user_name' AND password='$password'";
 
@@ -51,6 +55,7 @@ if(isset($_POST['submit'])){
     if($count==1){
         //user available and login success
         $_SESSION['login'] ="<div class='success'>Login Successful.</div>";
+        $_SESSION['user'] = $user_name;//to check whether the user is login or not and logout will unset it
         //redirect to home page
         header('location:'.SITEURL.'admin/');
         }else{
