@@ -23,11 +23,12 @@
 .tbl-small{
     width: 30%;
 }
-th{
+th {
     border-bottom: 1px solid black;
     padding: 1%;
     text-align: left;
 }
+
 table tr td{
     padding: 1%;
 }
