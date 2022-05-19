@@ -11,7 +11,7 @@
             unset($_SESSION['upload']);
         }
         ?>
-        <form action="" method="POST">
+        <form action="" method="POST" enctype="multipart/form-data">
             <table class="tbl-small">
                 <tr>
                     <td>Title: </td>
@@ -63,7 +63,6 @@
                                     //get the details of categories
                                     $id =$row['id'];
                                     $title =$row['title'];
-
                                     ?>
                                     <option value="<?php echo $id;?>"><?php echo $title;?></option>
                                     <?php
@@ -153,7 +152,7 @@
                     $src = $_FILES['image']['tmp_name'];
 
                     //destination path for the image to be uploaded
-                    $dst = "../images/food".$image_name;
+                    $dst = "../images/food/".$image_name;
 
                     //finally upload the food image
                     $upload = move_uploaded_file($src, $dst);
@@ -187,13 +186,20 @@
             ";
 
             //execute the query
-            $res2 = mysqli_query($conn, $sql);
+            $res2 = mysqli_query($conn, $sql2);
 
-            //check whether data inserted or not
-            if($res2==true){
-                $_SESSION['add'] ="<div class='error'>Food Added Succesfully.</div>";
-            }
+            //check whether data is inserted or not
             //4. redirect with message to manage food page
+            if($res2==true){
+                //data inserted succesfully
+                $_SESSION['add'] ="<div class='success'>Food Added Succesfully.</div>";
+                header('location:'.SITEURL.'admin/manage_food.php');
+            }else{
+                //failed to insert data
+                $_SESSION['add'] ="<div class='error'>Failed to add food.</div>";
+                header('location:'.SITEURL.'admin/manage_food.php');
+            }
+            
         }
         ?>
     </div>
