@@ -206,9 +206,11 @@ if(isset($_GET['id'])){
                             die();
                         }
                     }
+                }else{
+                    $image_name = $current_image;//default image when image is not selected
                 }
             }else{
-                $image_name = $current_image;
+                $image_name = $current_image;//default image when button is not clicked
             }
 
             

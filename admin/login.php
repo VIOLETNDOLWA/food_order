@@ -42,8 +42,10 @@
 if(isset($_POST['submit'])){
     //process for login
     //1.Get the data from login form
-    $user_name = $_POST['user_name'];
-    $password = md5($_POST['password']);
+    //$user_name = $_POST['user_name'];
+    //$password = md5($_POST['password']);
+    $user_name =mysqli_real_escape_string($conn, $_POST['user_name']);
+    $password =mysqli_real_escape_string($conn, md5($_POST['password']));
     //2. sql to check wheather the user with username and password exist or not
     $sql = "SELECT * FROM tbt_admin WHERE user_name='$user_name' AND password='$password'";
 
