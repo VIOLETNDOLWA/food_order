@@ -1,6 +1,7 @@
 <?php include('partial/menu.php');?>
 
-<?php 
+<?php
+ob_start();
 //check whether id is set or not
 if(isset($_GET['id'])){
     //get all the details

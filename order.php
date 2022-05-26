@@ -94,14 +94,14 @@ if(isset($_GET['food_id'])){
             $food = $_POST['food'] ?? "";
             $price = $_POST['price'] ?? "";
             $qty = $_POST['qty'] ?? "";
-
-            $total = $price*$qty; //total = price * qty
+            
+            $total = $price * $qty; //total = price * qty
             $order_date = date("Y-m-d h:i:sa"); //order date
             $status = "ordered"; //ordered, on delivery, delivered, cancelled
-            $customer_name = $_POST['full-name'] ?? "";
-            $customer_contact = $_POST['contact'] ?? "";
-            $customer_email = $_POST['email'] ?? "" ;
-            $customer_address = $_POST['address'] ?? "";
+            $customer_name =mysqli_real_escape_string($conn, $_POST['full-name'] ?? "") ;
+            $customer_contact =mysqli_real_escape_string($conn, $_POST['contact'] ?? "") ;
+            $customer_email =mysqli_real_escape_string($conn, $_POST['email'] ?? "") ;
+            $customer_address =mysqli_real_escape_string($conn,$_POST['address'] ?? "" );
 
             //save the order in database
             //create sql to save the data

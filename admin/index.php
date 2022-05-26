@@ -7,6 +7,7 @@
         <br><br>
 
         <?php
+        ob_start();
         if(isset($_SESSION['login'])){
             echo $_SESSION['login'];
             unset($_SESSION['login']);

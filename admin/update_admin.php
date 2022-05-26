@@ -5,6 +5,7 @@
         <br><br>
 
         <?php
+        ob_start();
         //1. get the ID of selected Admin
         $id=$_GET['id'];
 

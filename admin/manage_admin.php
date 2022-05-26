@@ -6,6 +6,7 @@
         <br>
 
         <?php
+        ob_start();
         if(isset($_SESSION['add'])){
             echo $_SESSION['add'];//displaying session message
             unset($_SESSION['add']);//removing session message

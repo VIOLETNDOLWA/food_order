@@ -6,6 +6,7 @@
         <br><br>
 
         <?php
+        ob_start();
         if(isset($_SESSION['upload'])){
             echo $_SESSION['upload'];
             unset($_SESSION['upload']);

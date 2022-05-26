@@ -5,7 +5,7 @@
 if(isset($_GET['category_id'])){
     //category  id is set and get the id
     $category_id = $_GET['category_id'];
-    //get the category title passed on category id
+    //get the category title bassed on category id
     $sql = "SELECT title FROM tbt_category WHERE id=$category_id";
 
     //execute the query
@@ -27,7 +27,7 @@ if(isset($_GET['category_id'])){
     <section class="food-search text-center">
         <div class="container">
             
-            <h2>Foods on <a href="#" class="text-white"><?php echo $category_title; ?></a></h2>
+            <h2>Foods on <a href="#" class="text-white">"<?php echo $category_title; ?>"</a></h2>
 
         </div>
     </section>

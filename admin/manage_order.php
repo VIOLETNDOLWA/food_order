@@ -5,6 +5,7 @@
         <br><br><br><br>
 
         <?php
+        ob_start();
         if(isset($_SESSION['update'])){
             echo $_SESSION['update'];
             unset ($_SESSION['update']);

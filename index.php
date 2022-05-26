@@ -42,7 +42,7 @@
                     $image_name = $row['image_name'];
                     ?>
 
-                        <a href="<?php echo SITEURL;?>category-foods.php?category_id<?php echo $id;?>">
+                        <a href="<?php echo SITEURL;?>category-foods.php?category_id=<?php echo $id;?>">
                             <div class="box-3 float-container">
                                 <?php
                                 //check whether the image is available or not
@@ -52,7 +52,7 @@
                                 }else{
                                     //image available
                                     ?>
-                                    <img src="<?php echo SITEURL;?>images/category/<?php echo $image_name;?>" alt="Pizza" class="img-responsive img-curve" width="150px" height="350px">
+                                    <img src="<?php echo SITEURL;?>images/category/<?php echo $image_name;?>" alt="Pizza" class="img-responsive img-curve" width="150px" height="300px">
                                     <?php
                                 }
                                 ?>

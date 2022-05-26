@@ -5,6 +5,7 @@
         <br><br>
 
         <?php
+        ob_start();
         //check whether the id is set or not
         if(isset($_GET['id'])){
             //get the id and all other details
